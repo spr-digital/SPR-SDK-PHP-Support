@@ -1,0 +1,16 @@
+{
+    "name": "spr-digital-lab/spr-sdk-php-support",
+    "autoload": {
+        "psr-4": {
+            "SprDigitalLab\\SprSdkPhpSupport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ujual"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0"
+    }
+}
