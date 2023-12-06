@@ -1,5 +1,6 @@
 {
     "name": "spr-digital-lab/spr-sdk-php-support",
+    "version": "1.1.0",
     "autoload": {
         "psr-4": {
             "SprDigitalLab\\SprSdkPhpSupport\\": "src/"
@@ -11,6 +12,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "spr-digital-lab/spr-laravel-service-sdk": "dev-main"
     }
 }
