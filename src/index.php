@@ -7,10 +7,16 @@ use Exception;
 class RemotePackage
 {
     private $remotePackageUrl;
+    private $token;
 
     public function __construct($remotePackageUrl)
     {
         $this->remotePackageUrl = $remotePackageUrl;
+    }
+    public function setAPIKey($token)
+    {
+        $this->token = $token;
+        return $this;
     }
 
     public function __call($action, $arguments)
@@ -21,6 +27,10 @@ class RemotePackage
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        if ($this->token) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $this->token]);
+        }
 
         if (!$response = curl_exec($ch)) {
             throw new Exception('cURL Error: ' . curl_error($ch));
@@ -41,3 +51,5 @@ class RemotePackage
         return $responseData;
     }
 }
+
+
